@@ -63,6 +63,16 @@ REİSS AUTO, tek çatı altında iki iş yapan bir şirketin web sitesidir:
 - /araclar/[id] detay sayfası: tüm bilgiler, sahibinden link, iletişim butonu
 - Supabase'den 3 örnek ilan çekiliyor (Mercedes, Volvo, DAF)
 
+## Admin Panel (Faz 2c — Tamamlandı)
+- /admin/login: e-posta+şifre girişi, signInWithPassword, noindex
+- /admin: ilan tablosu (tümü, aktif/pasif), yayına al/kaldır toggle, sil (Storage temizliği dahil), düzenle linki
+- /admin/yeni: ilan ekleme formu, Storage fotoğraf yükleme, insert
+- /admin/duzenle/[id]: mevcut veri yüklü form, fotoğraf değiştirme, update
+- useRequireAuth hook: session kontrolü, giriş yoksa /admin/login'e yönlendirme
+- admin layout.tsx: robots noindex/nofollow (tüm /admin sayfaları)
+- RLS: authenticated SELECT ALL policy eklendi (admin pasif ilanları da görebilsin)
+- service_role ASLA kullanılmadı — tüm işlemler kullanıcı JWT'si ile RLS üzerinden
+
 ## Sırada
 - Teklif formu + Resend (Faz 3)
 - Vercel deploy + domain (Faz 4)
