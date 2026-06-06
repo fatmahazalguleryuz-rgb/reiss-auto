@@ -11,10 +11,11 @@
 - [x] CTA bandı
 - [x] Footer (sosyal medya, iletişim)
 
-## Faz 2: Araç İlanları
-- [ ] /araclar sayfası
-- [ ] Supabase vehicles tablosu
-- [ ] İlan listeleme + filtreleme
+## Faz 2: Araç İlanları ✅ TAMAMLANDI
+- [x] /araclar sayfası (ilan listesi + marka/model arama)
+- [x] Supabase vehicles tablosu (reiss schema, RLS, storage bucket)
+- [x] İlan listeleme + client-side filtreleme
+- [x] /araclar/[id] detay sayfası
 
 ## Faz 3: Teklif Formu
 - [ ] Resend entegrasyonu

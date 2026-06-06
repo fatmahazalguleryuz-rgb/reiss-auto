@@ -46,7 +46,21 @@ REİSS AUTO, tek çatı altında iki iş yapan bir şirketin web sitesidir:
 - CtaBand.tsx — Kırmızı CTA bandı
 - Footer.tsx — 4 sütunlu footer
 
+## Supabase
+- Proje: ProtoBuilder (ID: khmshpxtbpmfomujvdso), bölge: eu-central-1
+- Schema: "reiss" (public schema'ya DOKUNMA)
+- Tablo: reiss.vehicles (11 alan: id, marka, model, yil, km, fiyat, foto_url, sahibinden_link, aciklama, durum, aktif)
+- RLS açık: aktif=true ilanları herkese SELECT; yazma sadece service_role
+- Storage bucket: "arac-fotograflari" (public)
+- Client: src/lib/supabase/client.ts — createBrowserClient @supabase/ssr, schema='reiss'
+- Tipler: src/lib/types.ts — Vehicle interface
+
+## Faz 2 Tamamlandı
+- reiss schema + vehicles tablosu + RLS + storage bucket kuruldu
+- /araclar sayfası: ilan listesi, arama, fotoğraf/placeholder
+- /araclar/[id] detay sayfası: tüm bilgiler, sahibinden link, iletişim butonu
+- Supabase'den 3 örnek ilan çekiliyor (Mercedes, Volvo, DAF)
+
 ## Sırada
-- /araclar sayfası
-- Teklif formu + Resend
-- Supabase araç ilanları
+- Teklif formu + Resend (Faz 3)
+- Vercel deploy + domain (Faz 4)
