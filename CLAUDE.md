@@ -63,7 +63,7 @@ REİSS AUTO, tek çatı altında iki iş yapan bir şirketin web sitesidir:
 - /araclar/[id] detay sayfası: tüm bilgiler, sahibinden link, iletişim butonu
 - Supabase'den 3 örnek ilan çekiliyor (Mercedes, Volvo, DAF)
 
-## Admin Panel (Faz 2c — Tamamlandı)
+## Admin Panel (Faz 2c — Tamamlandı, Test Edildi ✅)
 - /admin/login: e-posta+şifre girişi, signInWithPassword, noindex
 - /admin: ilan tablosu (tümü, aktif/pasif), yayına al/kaldır toggle, sil (Storage temizliği dahil), düzenle linki
 - /admin/yeni: ilan ekleme formu, Storage fotoğraf yükleme, insert
