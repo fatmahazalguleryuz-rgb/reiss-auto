@@ -55,6 +55,8 @@ REİSS AUTO, tek çatı altında iki iş yapan bir şirketin web sitesidir:
 - Client: src/lib/supabase/client.ts — createBrowserClient @supabase/ssr, schema='reiss'
 - Tipler: src/lib/types.ts — Vehicle interface
 
+⚠️ ÖNEMLİ — PGRST106 HATASINDAN DERS: reiss schema'sı Supabase Dashboard → Settings → API → Exposed schemas listesine manuel olarak eklendi. GRANT izinleri (PostgreSQL seviyesi) tek başına yetmez; PostgREST API katmanı da schema'yı görmesi için bu listeye eklenmiş olmalı. Yeni schema veya proje kurulumunda bu adım unutulursa "Invalid schema" / PGRST106 hatası alınır.
+
 ## Faz 2 Tamamlandı
 - reiss schema + vehicles tablosu + RLS + storage bucket kuruldu
 - /araclar sayfası: ilan listesi, arama, fotoğraf/placeholder
