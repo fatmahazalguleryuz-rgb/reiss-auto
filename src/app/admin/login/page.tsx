@@ -11,7 +11,6 @@ export default function AdminLoginPage() {
   const [loading, setLoading] = useState(false);
   const [checking, setChecking] = useState(true);
 
-  // Zaten giriş yapılmışsa admin'e yönlendir
   useEffect(() => {
     const supabase = createClient();
     supabase.auth.getSession().then(({ data }) => {
@@ -58,54 +57,115 @@ export default function AdminLoginPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2.5 mb-2">
-            <div className="w-8 h-8 border-2 border-accent flex items-center justify-center font-display font-bold text-accent text-base">
-              R
+            <div
+              style={{ border: "2px solid #c0392b" }}
+              className="w-8 h-8 flex items-center justify-center text-base font-bold"
+            >
+              <span style={{ color: "#c0392b" }}>R</span>
             </div>
-            <span className="font-display font-bold text-white text-lg tracking-wide">
-              REİSS <span className="text-accent">AUTO</span>
+            <span className="text-white text-lg font-bold tracking-wide">
+              REİSS <span style={{ color: "#c0392b" }}>AUTO</span>
             </span>
           </div>
           <p className="text-muted-light text-sm">Yönetim Paneli</p>
         </div>
 
-        {/* Card */}
-        <div className="bg-ink rounded-xl p-8 border border-line-dark">
-          <h1 className="font-display font-bold text-white text-xl uppercase mb-6">
+        {/* Kart */}
+        <div
+          style={{ backgroundColor: "#3a3a3c" }}
+          className="rounded-xl p-8 border border-line-dark"
+        >
+          <h1 className="text-white text-xl font-bold uppercase mb-6 tracking-wide">
             Giriş Yap
           </h1>
 
-          <div className="space-y-3">
-            <input
-              type="email"
-              placeholder="E-posta"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-ink-deep border border-line-dark text-white placeholder-muted-light rounded px-4 py-3 text-sm focus:outline-none focus:border-accent transition-colors"
-            />
-            <input
-              type="password"
-              placeholder="Şifre"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleLogin()}
-              className="w-full bg-ink-deep border border-line-dark text-white placeholder-muted-light rounded px-4 py-3 text-sm focus:outline-none focus:border-accent transition-colors"
-            />
+          <div className="space-y-4">
 
+            {/* E-posta */}
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-xs font-medium mb-1.5"
+                style={{ color: "#aab0ba" }}
+              >
+                E-posta
+              </label>
+              <input
+                id="email"
+                type="email"
+                autoComplete="email"
+                placeholder="ornek@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{
+                  backgroundColor: "#ffffff",
+                  color: "#3a3a3c",
+                  border: "1px solid #e3e5e8",
+                }}
+                className="w-full rounded px-4 py-3 text-sm focus:outline-none focus:ring-2"
+                onFocus={(e) => (e.target.style.borderColor = "#c0392b")}
+                onBlur={(e) => (e.target.style.borderColor = "#e3e5e8")}
+              />
+            </div>
+
+            {/* Şifre */}
+            <div>
+              <label
+                htmlFor="password"
+                className="block text-xs font-medium mb-1.5"
+                style={{ color: "#aab0ba" }}
+              >
+                Şifre
+              </label>
+              <input
+                id="password"
+                type="password"
+                autoComplete="current-password"
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleLogin()}
+                style={{
+                  backgroundColor: "#ffffff",
+                  color: "#3a3a3c",
+                  border: "1px solid #e3e5e8",
+                }}
+                className="w-full rounded px-4 py-3 text-sm focus:outline-none focus:ring-2"
+                onFocus={(e) => (e.target.style.borderColor = "#c0392b")}
+                onBlur={(e) => (e.target.style.borderColor = "#e3e5e8")}
+              />
+            </div>
+
+            {/* Hata mesajı */}
             {error && (
-              <p className="text-red-400 text-xs leading-relaxed">{error}</p>
+              <p
+                className="text-xs leading-relaxed"
+                style={{ color: "#e74c3c" }}
+              >
+                {error}
+              </p>
             )}
 
+            {/* Buton */}
             <div className="pt-1">
               <button
                 onClick={handleLogin}
                 disabled={loading}
-                className="w-full bg-accent hover:bg-accent-dark disabled:opacity-60 text-white font-display font-semibold text-xs uppercase tracking-wide py-3.5 rounded transition-colors"
+                style={{
+                  backgroundColor: loading ? "#a93226" : "#c0392b",
+                  color: "#ffffff",
+                  opacity: loading ? 0.8 : 1,
+                  cursor: loading ? "not-allowed" : "pointer",
+                }}
+                className="w-full rounded py-3.5 text-sm font-bold uppercase tracking-wide transition-opacity"
               >
                 {loading ? "Giriş yapılıyor..." : "Giriş Yap"}
               </button>
             </div>
+
           </div>
         </div>
+
       </div>
     </div>
   );
